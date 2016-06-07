@@ -7,6 +7,6 @@ class Mail extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'Cyberduck\Mailer';
+        return 'cyberduck.mailer';
     }
 }
