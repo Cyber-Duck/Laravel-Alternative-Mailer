@@ -4,6 +4,7 @@ namespace Cyberduck\Mail;
 
 use Swift_Mailer;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Mail\Mailer;
 
 class MailServiceProvider extends ServiceProvider
@@ -18,7 +19,7 @@ class MailServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/config.php' => config_path('mail2.php'),
+            __DIR__.'/config/config.php' => config_path('mail2.php'),
         ]);
         $loader = AliasLoader::getInstance();
         $loader->alias('Mail2', '\Cyberduck\Mail\Facades\Mail');
