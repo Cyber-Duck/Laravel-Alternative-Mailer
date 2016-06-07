@@ -1,0 +1,31 @@
+{
+    "name": "cyberduck/mail",
+    "description": "Allow Laravel to use a secondary mail package.",
+    "license": "MIT",
+    "homepage": "http://laravel.com",
+    "authors": [
+        {
+            "name": "Simone Todaro",
+            "email": "simo.todaro@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/container": "5.1.*",
+        "illuminate/contracts": "5.1.*",
+        "illuminate/support": "5.1.*",
+        "psr/log": "~1.0",
+        "swiftmailer/swiftmailer": "~5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cyberduck\\Mail\\": ""
+        }
+    },
+    "suggest": {
+        "aws/aws-sdk-php": "Required to use the SES mail driver (~3.0).",
+        "guzzlehttp/guzzle": "Required to use the Mailgun and Mandrill mail drivers (~5.3|~6.0).",
+        "jeremeamia/superclosure": "Required to be able to serialize closures (~2.0)."
+    },
+    "minimum-stability": "dev"
+}
