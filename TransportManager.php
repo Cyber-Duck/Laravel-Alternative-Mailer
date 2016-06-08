@@ -13,8 +13,9 @@ use Illuminate\Mail\Transport\MailgunTransport;
 use Illuminate\Mail\Transport\MandrillTransport;
 use Illuminate\Mail\Transport\SesTransport;
 use Swift_SendmailTransport as SendmailTransport;
+use Illuminate\Mail\TransportManager as OriginalTransportManager;
 
-class TransportManager extends Manager
+class TransportManager extends OriginalTransportManager
 {
     /**
      * Create an instance of the SMTP Swift Transport driver.
@@ -29,7 +30,8 @@ class TransportManager extends Manager
         // for delivering mail such as Sendgrid, Amazon SES, or a custom server
         // a developer has available. We will just pass this configured host.
         $transport = SmtpTransport::newInstance(
-            $config['host'], $config['port']
+            $config['host'],
+            $config['port']
         );
 
         if (isset($config['encryption'])) {
@@ -41,7 +43,6 @@ class TransportManager extends Manager
         // transporter instance so that we'll properly authenticate delivery.
         if (isset($config['username'])) {
             $transport->setUsername($config['username']);
-
             $transport->setPassword($config['password']);
         }
 
@@ -56,76 +57,7 @@ class TransportManager extends Manager
     protected function createSendmailDriver()
     {
         $command = $this->app['config']['mail2']['sendmail'];
-
         return SendmailTransport::newInstance($command);
-    }
-
-    /**
-     * Create an instance of the Amazon SES Swift Transport driver.
-     *
-     * @return \Swift_SendmailTransport
-     */
-    protected function createSesDriver()
-    {
-        $config = $this->app['config']->get('services.ses', []);
-
-        $config += [
-            'version' => 'latest', 'service' => 'email',
-        ];
-
-        if ($config['key'] && $config['secret']) {
-            $config['credentials'] = Arr::only($config, ['key', 'secret']);
-        }
-
-        return new SesTransport(new SesClient($config));
-    }
-
-    /**
-     * Create an instance of the Mail Swift Transport driver.
-     *
-     * @return \Swift_MailTransport
-     */
-    protected function createMailDriver()
-    {
-        return MailTransport::newInstance();
-    }
-
-    /**
-     * Create an instance of the Mailgun Swift Transport driver.
-     *
-     * @return \Illuminate\Mail\Transport\MailgunTransport
-     */
-    protected function createMailgunDriver()
-    {
-        $config = $this->app['config']->get('services.mailgun', []);
-
-        $client = new HttpClient(Arr::get($config, 'guzzle', []));
-
-        return new MailgunTransport($client, $config['secret'], $config['domain']);
-    }
-
-    /**
-     * Create an instance of the Mandrill Swift Transport driver.
-     *
-     * @return \Illuminate\Mail\Transport\MandrillTransport
-     */
-    protected function createMandrillDriver()
-    {
-        $config = $this->app['config']->get('services.mandrill', []);
-
-        $client = new HttpClient(Arr::get($config, 'guzzle', []));
-
-        return new MandrillTransport($client, $config['secret']);
-    }
-
-    /**
-     * Create an instance of the Log Swift Transport driver.
-     *
-     * @return \Illuminate\Mail\Transport\LogTransport
-     */
-    protected function createLogDriver()
-    {
-        return new LogTransport($this->app->make('Psr\Log\LoggerInterface'));
     }
 
     /**
