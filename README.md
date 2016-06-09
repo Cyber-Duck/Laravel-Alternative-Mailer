@@ -14,7 +14,7 @@ Publish the package config files
 
 Edit the configuration in `app/config/mail2.php` or in your .env file.
 
-Add the service provider to your `app/config/app.php`::
+Add the service provider to your `app/config/app.php`:
 
 ```php
 'providers' => array(
@@ -22,8 +22,21 @@ Add the service provider to your `app/config/app.php`::
 )
 ```
 
+Optionally, add the facade to your `app/config/app.php`:
+
+```php
+'aliases' => array(
+    'Mail2' => 'Cyberduck\Mail\Facades\Mail',
+)
+```
+or include tha Facade in your class adding
+
+```php
+use \Cyberduck\Mail\Facades\Mail as Mail2;
+```
+
 ### Usage
-Send the email using the Mail2 facade with the same syntax of the default mailer.
+Send an email using the \Cyberduck\Mail\Facades\Mail facade with the same syntax of the default mailer.
 
 ```php
 Mail2::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
