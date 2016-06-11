@@ -1,5 +1,5 @@
 {
-    "name": "cyberduck/mail",
+    "name": "cyber-duck/mail",
     "description": "Allow Laravel to use a secondary mail package.",
     "license": "MIT",
     "homepage": "http://laravel.com",
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Cyberduck\\Mail\\": ""
+            "Cyberduck\\Mail\\": "src/"
         }
     },
     "suggest": {
