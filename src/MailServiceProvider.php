@@ -23,7 +23,7 @@ class MailServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/config/config.php' => config_path('mail2.php'),
+            __DIR__.'/../config/config.php' => config_path('mail2.php'),
         ]);
     }
 
