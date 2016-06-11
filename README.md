@@ -1,46 +1,40 @@
-# Laravel Secondary mailer
-Laravel 5.1 package to allow a secondary mailer.
+# Laravel Alternative Mailer
+This package allows a Laravel 5 application to send emails through two different mail configurations.
 
 ## Install
+Require this package with composer:
+```
+composer require cyber-duck/laravel-alternative-mailer:1.0.*
+```
 
-Add the following line to your `composer.json` and run install/update:
-
-    "cyberduck/laravel-secondary-mailer": "1.0.*"
-
-
-Publish the package config files
-
-    php artisan vendor:publish
-
-Edit the configuration in `app/config/mail2.php` or in your .env file.
-
-Add the service provider to your `app/config/app.php`:
-
+After updating composer, add the ServiceProvider to the providers array in `config/app.php`
 ```php
 'providers' => array(
-  'Cyberduck\LaravelWpApi\LaravelWpApiServiceProvider'
+    ...
+    'Cyberduck\Mail\MailServiceProvider'
 )
 ```
 
-Optionally, add the facade to your `app/config/app.php`:
-
+And add an alias in `config/app.php`:
 ```php
 'aliases' => array(
     'Mail2' => 'Cyberduck\Mail\Facades\Mail',
 )
 ```
-or include tha Facade in your class adding
 
-```php
-use \Cyberduck\Mail\Facades\Mail as Mail2;
+Copy the package config to your local config with the publish command:
+```
+php artisan vendor:publish --provider="Cyberduck\Mail\MailServiceProvider"
 ```
 
-### Usage
-Send an email using the \Cyberduck\Mail\Facades\Mail facade with the same syntax of the default mailer.
+Finally, set up your configuration in `config/mail2.php`
 
+### Usage
+To send an email with the alternative configuration, use the Mail2 facade with the same syntax of the [Mail facade](https://laravel.com/docs/master/mail#sending-mail).
 ```php
-Mail2::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
+\Mail2::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
     $m->from('hello@app.com', 'Your Application');
-    $m->to($user->email, $user->name)->subject('Your Reminder!');
+    $m->to($user->email, $user->name);
+    $m->subject('Your Reminder!');
 });
 ```
