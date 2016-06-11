@@ -1,5 +1,7 @@
 # Laravel Alternative Mailer
-This package allows a Laravel 5 application to send emails through two different mail configurations.
+This package allows a Laravel 5 application to send emails through two different mail configurations. This package has been adapted from [illuminate/mail](https://github.com/illuminate/mail) by Taylor Otwell.
+
+Author: [Simone Todaro](https://github.com/SimoTod)
 
 ## Install
 Require this package with composer:
