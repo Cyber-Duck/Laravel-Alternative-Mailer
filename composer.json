@@ -1,5 +1,5 @@
 {
-    "name": "cyber-duck/mail",
+    "name": "cyber-duck/laravel-alternative-mailer",
     "description": "Allow Laravel to use a secondary mail package.",
     "license": "MIT",
     "homepage": "http://laravel.com",
