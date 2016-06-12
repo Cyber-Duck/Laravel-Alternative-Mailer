@@ -1,4 +1,5 @@
 # Laravel Alternative Mailer
+[![Build Status](https://travis-ci.org/Cyber-Duck/Laravel-Alternative-Mailer.svg?branch=master?branch=master)](https://travis-ci.org/Cyber-Duck/Laravel-Alternative-Mailer) [![Latest Stable Version](https://poser.pugx.org/cyber-duck/laravel-alternative-mailer/v/stable)](https://packagist.org/packages/cyber-duck/laravel-alternative-mailer) [![Total Downloads](https://poser.pugx.org/cyber-duck/laravel-alternative-mailer/downloads)](https://packagist.org/packages/cyber-duck/laravel-alternative-mailer) [![License](https://poser.pugx.org/cyber-duck/laravel-alternative-mailer/license)](https://packagist.org/packages/cyber-duck/laravel-alternative-mailer)
 This package allows a Laravel 5 application to send emails through two different mail configurations. This package has been adapted from [illuminate/mail](https://github.com/illuminate/mail) by Taylor Otwell.
 
 Author: [Simone Todaro](https://github.com/SimoTod)
