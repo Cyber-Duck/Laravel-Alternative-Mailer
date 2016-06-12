@@ -22,7 +22,7 @@ cache:
 before_script:
   - rm -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.inii
   - flags="--prefer-dist"
-  - composer install l $flags
+  - composer install $flags
 
 script:
   - vendor/bin/phpcs --standard=PSR2 -n src
