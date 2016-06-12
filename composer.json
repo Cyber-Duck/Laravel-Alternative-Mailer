@@ -1,8 +1,9 @@
 {
     "name": "cyber-duck/laravel-alternative-mailer",
-    "description": "Allow Laravel to use a secondary mail package.",
+    "description": "Allow Laravel to send emails through two different mail configurations.",
     "license": "MIT",
-    "homepage": "http://laravel.com",
+    "keywords": ["laravel","mail","multiple mail configurations"],
+    "homepage": "http://github.com/Cyber-Duck/Laravel-Alternative-Mailer",
     "authors": [
         {
             "name": "Simone Todaro",
@@ -35,5 +36,5 @@
         "guzzlehttp/guzzle": "Required to use the Mailgun and Mandrill mail drivers (~5.3|~6.0).",
         "jeremeamia/superclosure": "Required to be able to serialize closures (~2.0)."
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
