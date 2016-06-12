@@ -6,7 +6,7 @@ Author: [Simone Todaro](https://github.com/SimoTod)
 ## Install
 Require this package with composer:
 ```
-composer require cyber-duck/laravel-alternative-mailer:1.0.*
+composer require cyber-duck/laravel-alternative-mailer:~1.0.2
 ```
 
 After updating composer, add the ServiceProvider to the providers array in `config/app.php`
