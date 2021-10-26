@@ -1,3 +1,6 @@
+# 🚨 Discontinued 🚨
+This package is available in Laravel be default in later releases.
+
 # Laravel Alternative Mailer
 [![Build Status](https://travis-ci.org/Cyber-Duck/Laravel-Alternative-Mailer.svg?branch=master)](https://travis-ci.org/Cyber-Duck/Laravel-Alternative-Mailer)
 [![Latest Stable Version](https://poser.pugx.org/cyber-duck/laravel-alternative-mailer/v/stable)](https://packagist.org/packages/cyber-duck/laravel-alternative-mailer)
